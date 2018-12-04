@@ -83,7 +83,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 CMD  ffmpeg -re -f lavfi -i smptehdbars=size=1280x720 \
-            -f lavfi -i anullsrc \
+            -f lavfi -i "sine=frequency=1000:sample_rate=48000:duration=5" \
             $LOGO_OVERLAY \
             -filter_complex \
                 "drawbox=y=25: x=iw/2-iw/7: c=0x00000000@1: w=iw/3.5: h=36: t=max, \
